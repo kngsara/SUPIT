@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+        
+    <link rel="stylesheet" href="style\styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+    <body>
+        <header>
+            <nav class="navbar">
+            <div id="auth-area"></div>
+
+            <a href="index.html" class="link"><i class="fa-solid fa-home"></i>Početna</a>
+            <a href="about.html" class="link"><i class="fa-solid fa-circle-info"></i>O nama</a>
+            <a href="news.html" class="link"><i class="fa-solid fa-newspaper"></i>Novosti</a>
+
+            <a id="nastavni-plan" class="link" href="plan.html" style="display:none;">
+                Nastavni plan
+            </a>
+
+            <a href="#" class="link" id="openModal"><i class="fa-solid fa-envelope"></i>Kontakt</a>
+            </nav>
+        </header> 
+
+        <main>
+            <div class="login-wrap">
+                <h1 class="login-title">REGISTRACIJA KORISNIKA</h1>
+        <!-- samo register-form promijenjen, ostalo class login-form zbog dizajna -->
+                <form id="register-form" class="login-form" method="post">
+                    <label for="email">Korisničko ime</label>
+                    <input type="email" id="username" name = "username" placeholder="novipero@gmail.com" required />
+        
+                    <label for="pass">Lozinka</label>
+                    <input type="password" id="password" name="password" placeholder="••••••" required />
+        
+                    <button type="submit" class="login-btn">Registriraj se</button>
+        
+                    <p class="register-text">
+                        Imaš račun? <a href="login.html">Prijavi se</a>
+                    </p>
+                </form>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <img src="img/zaiskri-bg.jpg" alt="Zaiskri background">
+
+            <div class="footer-text">
+                <p class="footer_slogan">BUDI IZVRSTAN U ONOM ŠTO VOLIŠ</p>
+                <p class="footer_slogan footer_zaiskri">ZAISKRI</p>
+            </div>
+        </footer>
+
+        
+        <!-- MODAL ZA KONTAKT -->
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal">
+                <span class="close-btn" id="closeModal">&times;</span>
+                <h2>Kontakt obrazac</h2>
+
+                <form action="https://www.fulek.com/mvc/supit/project-contact-form" method="get">
+
+                <label for="fullName">Puno ime i prezime:</label>
+                <input id="fullName" name="FullName" type="text" required>
+
+                <label for="email">Email:</label>
+                <input id="email" name="Email" type="email" required autocomplete="email">
+
+                <label for="importance">Važnost poruke:</label>
+                <select id="importance" name="Importance" required>
+                    <option value="">-- Odaberite --</option>
+                    <option value="low">Niska</option>
+                    <option value="medium">Srednja</option>
+                    <option value="high">Visoka</option>
+                </select>
+
+                <label class="checkbox">
+                    <input type="checkbox" name="ReceiveNewsletter" value="true">
+                    Želim primati newsletter
+                </label>
+
+                <label for="message">Poruka:</label>
+                <textarea id="message" name="Message" rows="4" required></textarea>
+
+                <div class="buttons">
+                    <button type="submit">Pošalji</button>
+                    <button type="reset">Poništi</button>
+                </div>
+
+                </form>
+            </div>
+        </div>
+        <script>
+            const openBtn = document.getElementById("openModal");
+            const closeBtn = document.getElementById("closeModal");
+            const overlay = document.getElementById("modalOverlay");
+
+            openBtn.addEventListener("click", () => overlay.classList.add("active"));
+            closeBtn.addEventListener("click", () => overlay.classList.remove("active"));
+            overlay.addEventListener("click", e => {
+                if (e.target === overlay) overlay.classList.remove("active");
+            });
+            
+        </script>
+
+        <script src="js\registration.js"></script>
+        <script type="module" src="js/shared.js"></script>
+
+
+
+    </body>
+</html>

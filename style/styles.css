@@ -1,0 +1,945 @@
+
+    html {
+        scroll-behavior: smooth;
+        
+    }
+
+    body {
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        overflow-x: hidden;
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    }
+
+
+    header{
+        position: sticky;
+        width: 100%;
+        top: 0;
+        z-index: 1000; 
+    }
+
+    img{
+        width: 100%;
+        height: 300px;
+        object-fit: cover; 
+        display: block;
+    }
+
+
+
+    /* about stilovi, ARTIKLI, MAPS, CARDS */
+    h2{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(163, 4, 41);
+    }
+
+        /* popravljeno poklapanje fiksnog navbara */
+    h2[id] {
+        scroll-margin-top: 70px; 
+    }
+
+    /* KURZIV TEXT U BOXOVINMA */
+    .kurziv{
+
+        padding-bottom: 30px;
+        padding-top: 30px;
+        background-color: rgb(242, 242, 242);
+
+    }
+
+    .kurziv p {
+        margin: 0 auto;
+        width: min(900px, 92vw);
+        line-height: 1.6;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-style: italic;
+    }
+
+
+    /* KARTICE WRAP */
+
+    .wrap {
+        font-family: system-ui, sans-serif;
+        font-size: 13px;
+        margin: 40px auto;
+        max-width: 1200px;
+    }
+    
+    .cards {
+        display: flex;
+        flex-wrap: wrap; 
+        gap: 10px;
+        margin: 10px;
+    }
+    
+    .card {
+        background: #ffffff;
+        border-radius: 3px;
+        border: 1px solid #e2e2e2;
+        display: flex;
+        flex-direction: column;
+        min-width: 260px; 
+        flex: 1 1 320px;
+    }
+    
+    .card__body {
+        padding: 16px;
+    }
+
+    .card-sponsor {
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 calc(25% - 16px); /* cetvrtine*/
+        min-width: 260px;
+    }
+
+    
+    .card__title{
+        color: #8a8a8a;
+        margin-bottom: 10px;        
+        padding: 5px 5px 12px;
+        border-bottom: 1px solid rgb(177, 177, 177);
+        font-weight: 700;
+        height: 80px;
+    }
+
+
+
+    .card__text {
+        color: #475569;
+        margin: 0;
+    }
+
+    .card__logo {
+        display: block;
+        max-width: 180px;
+        width: 100%;
+        margin: 10px auto 0; 
+        height: 50px;
+        object-fit: contain;
+    }
+
+
+    .karta-wrap {
+        width: 100%;
+        min-height: 600px;
+        padding: 40px 0;
+
+        background-image: url("../img/kakoDoNas.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        display: flex;
+        flex-direction: column;   
+        align-items: center;
+        gap: 30px;                
+    }
+
+    .karta-cards {
+        width: min(800px, 92vw);
+        display: grid;
+        grid-template-columns: 1fr 1fr;  /* dva stupca */
+        gap: 20px;
+    }
+
+    .karta-cards article {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    
+    .karta {
+        width: min(800px, 92vw);
+        height: 350px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    
+    .karta iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+    }
+
+    .karta-wrap p {
+        font-size: small;
+    }
+
+    .karta-cards h2 {
+        color: black;
+        text-align: left;
+        display: flex;
+        justify-content: left;
+        gap: 10px;
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .karta-cards h2 i {
+        color: #1378de;   
+        font-size: 18px;
+    }
+
+
+    /* TYPEWRITER TYPING TIPKANJE */
+    
+    .video-typing {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        z-index: 0; 
+    }
+
+    .typewriter-overlay {
+        position: fixed;
+        left: 25%;
+        top: 300px;
+        text-align: left;
+        font-family: Arial, sans-serif;
+        font-weight: 800;
+        font-size: 44px;
+        line-height: 1.15;
+        z-index: 2;
+    }
+
+    #line1 { color: white; }
+
+    .zaiskri { color: rgb(203, 47, 0); }
+    
+    .white { color: white; }
+
+    .cursor {
+        display: inline-block;
+        width: 0.35em;     
+        height: 1.05em;
+        background: currentColor;
+        margin-left: 0.1em;
+        transform: translateY(0.15em);
+        animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+        50% { opacity: 0; }
+    }
+
+    /* misleci na glavne naslove s crtom - main header */
+
+    .main-header {
+        width: min(600px, 92vw);
+        margin: 40px auto;
+        padding: 20px 0;
+        border-bottom: 3px solid orange;
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+
+
+    /* NAVIGACIJSKA TRAKA --- NAVBAR */
+
+    .navbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 16px;
+        align-items: center; 
+        padding: 16px;
+        background: rgb(29, 30, 39);
+        font-size: 13px;
+        font-weight: bold;
+        flex: 1;
+        
+    }
+
+    @media (max-width: 900px) {
+        .typewriter-overlay {
+            left: 8%;
+            top: 200px;
+            font-size: 34px;
+        }
+    }
+
+    @media (max-width: 700px) {
+        
+        .karta-cards {
+            grid-template-columns: 1fr;
+        }
+
+        .karta {
+            height: 280px;
+        }
+
+        .karta-wrap {
+            padding: 20px 0;
+        }
+
+        .navbar {
+            overflow-x: auto;
+            flex-wrap: wrap;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .navbar {
+            padding: 12px;
+            font-size: 12px;
+        }
+
+        .link {
+            padding: 6px 8px;
+        }
+
+        .typewriter-overlay {
+            left: 6%;
+            top: 160px;
+            font-size: 26px;
+            line-height: 1.2;
+        }
+
+        img {
+            height: 200px;
+        }
+
+
+        .spacer {
+            display: none;
+        }
+    }
+
+    #auth-area {
+        display: flex;
+        align-items: center;
+        margin-right: 0px;
+        color: white;
+        text-decoration: none;  
+    }
+
+    button.link {
+        font-size: 13px;
+        font-weight: bold;
+        margin-right: 0px;
+    }
+
+
+
+    .link, #openModal {
+        color: white;
+        margin-right: 16px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+
+    .link:hover, #openModal:hover{
+        color: yellow;
+    }
+    
+    .scroll-link {
+        color: orange;
+    }
+
+    .spacer {
+        flex: 1;   
+    }
+
+    i {
+        padding-right: 5px;
+        padding-left: 5px;
+        color: orange;
+    }
+    
+    #auth-area i.fa-circle-arrow-right,
+    #auth-area i.fa-circle-arrow-left {
+        color: rgb(34, 113, 218);
+    }
+
+
+    #header_icons{
+        color: rgb(163, 4, 41);
+    }
+
+
+
+
+    /* +++++++ FOOTER SA NATPISOM slogan +++++++ */
+
+    footer {
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        position: relative;
+        width: 100%;
+        height: 250px;
+           
+    }
+    footer img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .footer-text {
+        position: absolute;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 35px;
+        font-weight: bold;
+
+    }
+ 
+    .footer_zaiskri {
+        top: 110px; 
+        font-size: 35px;
+        color: rgb(190, 46, 38);
+        text-shadow: 0 2px 6px rgba(0,0,0,0.45);
+    } 
+
+
+    @media (max-width: 600px) {
+        .footer_slogan {
+            font-size: 22px;
+            letter-spacing: 1px;
+        }
+
+        .footer_zaiskri {
+            font-size: 26px;
+            top: 95px;
+        }
+    }
+
+
+    /* BANNERI NA NOVOSTIMA */
+
+    .banner{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 15%;
+
+        opacity: 0;
+        transform: translateY(-30px);     
+        animation: bannerDrop 700ms ease-out forwards;
+    }
+
+
+    @keyframes bannerDrop{
+        to{
+            opacity: 1;
+            transform: translateY(0);       
+        }
+    }
+
+
+    .banner_overlay{
+        width: 100%;
+        height: 300px;
+        margin-top: 0px;
+        position: relative;   
+        overflow: hidden;     
+    }
+
+    .banner_overlay img.banner{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 15%; 
+        display: block;
+    }
+
+    .banner-text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        text-align: left;
+        font-size: larger;
+        color: #fff;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-shadow: 0 2px 6px rgba(0,0,0,0.55);
+        white-space: normal;    
+        max-width: 80%;
+    }
+
+    /* NOVOST NOVOSTII */
+    .novost{
+        padding: 1% 15% 3% 15%;
+    }
+
+    .novosti-balls{
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        display: flex;
+        justify-content: center;
+        gap: 140px;
+        flex-wrap: wrap;
+    }
+
+    .novost-ball{
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        position: relative;
+        overflow: hidden;
+        display: block;
+        text-decoration: none;
+        text-align: center;
+        box-shadow:
+            0 0 0 20px rgba(0,0,0,0.06),
+            0 12px 25px rgba(0,0,0,0.15);
+
+    }
+
+
+    .novost-ball img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    
+    .novost-overlay{
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 18px;
+        font-weight: bold;
+        background: rgba(0,0,0,0.35);
+        color: white;
+    }
+
+    .novost-date{
+        font-weight: 700;
+        font-size: 14px;
+        margin-bottom: 8px;
+        color: #f4d13a; 
+    }
+
+    .novost-text{
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.35;
+    }
+            
+    .novost-ball{
+        transform: scale(1);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        will-change: transform;
+    }
+
+    .novost-ball:hover{
+        transform: scale(1.06);
+        box-shadow:
+            0 0 0 20px rgba(0,0,0,0.06),
+            0 18px 35px rgba(0,0,0,0.22);
+    }
+
+
+    /* +++++++ MODAL  MODAL  MODAL +++++++ */
+
+
+    /* overlay zatamnjena pozadina */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    /* modal/prozor skocni */
+    .modal {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 500px;
+        text-align: left;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        position: relative;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 1.5rem;
+        color: #666;
+        cursor: pointer;
+    }
+
+    
+    .modal form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .modal label {
+        font-weight: 500;
+    }
+
+    .modal input,
+    .modal textarea,
+    .modal select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .modal label.checkbox {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 500;
+    }
+
+    .modal label.checkbox input[type="checkbox"] {
+        width: auto;
+        margin: 0;
+    }
+
+    .modal .buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .modal .buttons {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-start; 
+    }
+
+    .modal button[type="submit"] {
+        background: #286aa7;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 6px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .modal button[type="submit"]:hover {
+        background: #1e79a9;
+    }
+
+    .modal button[type="reset"] {
+        background: #a72828;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 6px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .modal button[type="reset"]:hover {
+        background: rgb(119, 33, 33);
+    }
+
+    .modal-overlay.active {
+        display: flex;
+    }   
+
+    /* ++++++++++++ NASTAVNI PLAN ++++++++++++++ */
+
+    .plan-wrapper {
+        max-width: 1100px;
+        margin: 40px auto;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 30px;
+        padding: 0 16px;
+        
+    }
+
+    .plan-left label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .plan-left input {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+    .course-list {
+        margin-top: 12px;
+        list-style: none;
+        padding: 0;
+        border: 1px solid #e2e2e2;
+        border-radius: 6px;
+        max-height: 350px;
+        overflow-y: auto;
+    }
+
+    .course-list li {
+        padding: 10px 12px;
+        cursor: pointer;
+        border-bottom: 1px solid #eee;
+    }
+
+    .course-list li:hover {
+        background: #f4f4f4;
+    }
+
+    .plan-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+
+    .plan-table th,
+    .plan-table td {
+        padding: 10px;
+        border-bottom: 2px solid #ddd;
+        text-align: left;
+    }
+
+    .plan-table thead th {
+        border-bottom: 3px solid #000;
+    }
+
+    .total-row td {
+        font-weight: 700;
+        border-top: 3px solid #000;
+    }
+
+    .btn-delete {
+        background: #d63b3b;
+        color: white;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .btn-delete:hover {
+        background: #b92c2c;
+    }
+
+
+    @media (max-width: 800px) {
+        .plan-wrapper {
+            grid-template-columns: 1fr;
+        }
+    }
+    .course-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .btn-add {
+        background: #2b7be0;
+        color: white;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    btn-add:disabled {
+        background: #aaa;
+        cursor: not-allowed;
+    }
+
+    .btn-delete {
+        background: #d63b3b;
+        color: white;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .autocomplete { 
+        position: relative; 
+    }
+
+    .suggestions {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        right: 0;
+        z-index: 50;
+
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        max-height: 320px;
+        overflow: auto;
+
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+
+        display: none;
+    }
+
+    .suggestions.show { 
+        display: block; 
+    }
+
+    .suggestions li {
+        padding: 10px 12px;
+        cursor: pointer;
+        border-bottom: 1px solid #f1f1f1;
+    }
+
+    .suggestions li:hover { 
+        background: #f6f6f6; 
+    }
+
+
+    /* LOGIN I REGISTRACIJA stilovi su isti */
+    
+    .login-wrap {
+    margin: 120px 0 80px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    .login-title {
+    margin: 0 0 25px 0;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #444;
+    }
+
+    .login-form {
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    }
+
+    .login-form label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #444;
+    }
+
+    .login-form input {
+    height: 40px;
+    padding: 8px 12px;
+    border: 1px solid #d8d8d8;
+    border-radius: 3px;
+    outline: none;
+    font-size: 14px;
+    }
+
+    .login-form input:focus {
+    border: 1px solid #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+    }
+
+    .login-btn {
+    margin-top: 10px;
+    height: 42px;
+    border: none;
+    border-radius: 3px;
+    background: #2f2f2f;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+    }
+
+    .login-btn:hover {
+    background: #111;
+    }
+
+    
+    .register-text {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #444;
+    }
+
+    .register-text a {
+    color: #2b6edc;
+    text-decoration: none;
+    font-weight: 600;
+    }
+
+    .register-text a:hover {
+    text-decoration: underline;
+    }
+
+    /* NEWS1 galerija i video +++ LIGHTBOX*/
+
+    .media-section{
+        display: flex;
+        align-items: center;
+        margin: 0 15% 5% 15%;
+        gap: 30px;
+
+    }
+
+    .gallery-video{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .gallery-video video{
+        width: min(720px, 100%);
+        aspect-ratio: 16 / 9;
+        display: block;
+        border-radius: 10px;
+        box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+        background:#000;
+    }
+
+
+    @media (max-width: 600px){
+        .gallery-pics img{
+            width: 100%;
+            max-width: 340px;
+        }
+    }

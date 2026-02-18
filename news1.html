@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novost1</title>
+
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css">
+
+       
+</head>
+<body>
+    <!-- --NAVIGACIJSKA TRAKA -->
+    <header>
+        <nav class="navbar">
+        <div id="auth-area"></div>
+
+        <a href="index.html" class="link"><i class="fa-solid fa-home"></i>Početna</a>
+        <a href="about.html" class="link"><i class="fa-solid fa-circle-info"></i>O nama</a>
+        <a href="news.html" class="link"><i class="fa-solid fa-newspaper"></i>Novosti</a>
+
+        <a id="nastavni-plan" class="link" href="plan.html" style="display:none;">
+            Nastavni plan
+        </a>
+
+        <a href="#" class="link" id="openModal"><i class="fa-solid fa-envelope"></i>Kontakt</a>
+        </nav>
+    </header>
+
+    <div class="banner_overlay">
+        <img src="img/galerija1.jpg" class="banner">
+
+        <div class="banner-text">
+            <p>Student Josip Stanesic 12. je sistemas svijeta i
+            dobitnik medalje izvrsnosti.</p>
+        </div>
+    </div>
+
+
+    
+    <div class="main-header">
+        WorldSkills natjecanje - Kazan 2019.
+    </div>
+
+    <div class="novost">    <p>Nakon godinu dana priprema za natjecanje WorldSkills
+                        Kazan 2019 na kojem je sudjelovalo 1300 natjecatelja iz
+                        cijelog svijeta, trud se itekako isplatio. Josip,
+                        student 3. godine preddiplomskog studija sistemskog
+                        inženjerstva osvojio je 12. mjesto u vještini IT
+                        Networks and System Administration te osvojio medalju
+                        izvrsnosti! Čestitke Josipu ali i njegovim/našim
+                        mentorima koji su ga pripremali za ovo natjecanje –
+                        voditelju studija sistemskog inženjerstva Silviju
+                        Papiću, voditelju katedre za operacijske sustave –
+                        Vedranu Dakiću i asistentu na studiju sistemskog
+                        inženjerstva – Jasminu Redžepagiću. Čestitke i našem
+                        studentu 3.godine preddiplomskog studija programskog
+                        inženjerstva Josipu Horvatu i mentoru voditelju katedre
+                        za programsko inženjerstvo - Goranu Đambiću na osvojenom
+                        16.mjestu u vještini IT Software Solutions for Business.</p></div>
+
+<!-- galerija slika i video -->
+    <section class="media-section">
+
+        <a href="img/galerija1.jpg" data-lightbox="gallery" data-title="Silvio Papic i Josip Stanesic">
+            <img src="img/galerija1.jpg" alt="">
+        </a>
+
+        <a href="img/galerija2.jpg" data-lightbox="gallery" data-title="Algebra event 2019.">
+            <img src="img/galerija2.jpg" alt="">
+        </a>
+        <script>
+            lightbox.option({
+                resizeDuration: 200,
+                wrapAround: true
+            });
+        </script>
+
+    </section>
+        <div class="gallery-video">
+            <video controls poster="img/video-poster.jpg">
+                <source src="img/worldskills.mp4" type="video/mp4">          
+            </video>
+        </div>
+
+
+
+<!-- MODAL ZA KONTAKT -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h2>Kontakt obrazac</h2>
+
+            <form action="https://www.fulek.com/mvc/supit/project-contact-form" method="get">
+
+            <label for="fullName">Puno ime i prezime:</label>
+            <input id="fullName" name="FullName" type="text" required>
+
+            <label for="email">Email:</label>
+            <input id="email" name="Email" type="email" required autocomplete="email">
+
+            <label for="importance">Važnost poruke:</label>
+            <select id="importance" name="Importance" required>
+                <option value="">-- Odaberite --</option>
+                <option value="low">Niska</option>
+                <option value="medium">Srednja</option>
+                <option value="high">Visoka</option>
+            </select>
+
+            <label class="checkbox">
+                <input type="checkbox" name="ReceiveNewsletter" value="true">
+                Želim primati newsletter
+            </label>
+
+            <label for="message">Poruka:</label>
+            <textarea id="message" name="Message" rows="4" required></textarea>
+
+            <div class="buttons">
+                <button type="submit">Pošalji</button>
+                <button type="reset">Poništi</button>
+            </div>
+
+            </form>
+        </div>
+    </div>
+    <script>
+        const openBtn = document.getElementById("openModal");
+        const closeBtn = document.getElementById("closeModal");
+        const overlay = document.getElementById("modalOverlay");
+
+        openBtn.addEventListener("click", () => overlay.classList.add("active"));
+        closeBtn.addEventListener("click", () => overlay.classList.remove("active"));
+        overlay.addEventListener("click", e => {
+            if (e.target === overlay) overlay.classList.remove("active");
+        });
+        
+    </script>                  
+
+    <footer class="footer">
+        <img src="img/zaiskri-bg.jpg">
+    
+        <div class="footer-text" id="slogan">
+            <p class="footer_slogan">BUDI IZVRSTAN U ONOM ŠTO VOLIŠ</p>
+            <p class="footer_slogan footer_zaiskri">ZAISKRI</p>
+        </div>
+    </footer>
+    
+    <script type="module" src="js/shared.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
+</body>
+
+</html>
